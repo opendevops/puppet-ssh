@@ -1,5 +1,11 @@
 # ssh
 
+example:
+```
+include ssh
+ssh::config{ 'ssh_config': }
+```
+
 #### Table of Contents
 
 1. [Overview](#overview)

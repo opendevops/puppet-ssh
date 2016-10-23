@@ -23,19 +23,23 @@
 #
 # === Examples
 #
-#  class { 'ssh':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
+# include ssh
+# ssh::config{ 'ssh_config': }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Matthew Hansen
 #
 # === Copyright
 #
-# Copyright 2016 Your name here, unless otherwise noted.
+# Copyright 2016 Matthew Hansen
 #
 class ssh {
 
+  service { 'sshd':
+    ensure  => running,
+    enable  => true,
+    require => Package['openssh-server'],
+  }
 
 }
